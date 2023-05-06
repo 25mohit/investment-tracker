@@ -9,6 +9,7 @@ const InvAdd = ({ onClose }) => {
     const [wages, setWages] = useState([
         { wagesType: '', wagesAmount: null }
     ])
+    // new
 
     const dispatch = useDispatch()
 

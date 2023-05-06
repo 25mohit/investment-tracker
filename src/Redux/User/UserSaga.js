@@ -2,9 +2,10 @@ import axios from 'axios';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Action from '../types'
 import { activitylist, loginUserRes } from './UserAction';
+import getAPI from '../../Constant';
 
 function* loginUserSaga(loginData){
-    const loginUser = yield axios.post(`http://localhost:6767/user/login`, loginData.payload)
+    const loginUser = yield axios.post(`${getAPI()}user/login`, loginData.payload)
     .then((res) => {
         var response = res.data
         console.log("res", res, response);
@@ -29,7 +30,7 @@ function* loginUserSaga(loginData){
 }
 
 function* accountActivitySaga(){
-    const activity = yield axios.get(`http://localhost:6767/activity`, {
+    const activity = yield axios.get(`${getAPI()}activity`, {
         headers: {
             authentication: localStorage.getItem('token')
         }
@@ -51,7 +52,7 @@ function* accountActivitySaga(){
 }
 
 function* logoutActivitySaga(){
-    const logoutActivity = yield axios.post(`http://localhost:6767/activity/update`,{}, {
+    const logoutActivity = yield axios.post(`${getAPI()}activity/update`,{}, {
         headers: {
             authentication: localStorage.getItem('token')
         }

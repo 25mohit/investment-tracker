@@ -2,9 +2,10 @@ import axios from 'axios';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Action from '../types'
 import { allInvestmentList, getAllInvestment } from './InvAction';
+import getAPI from '../../Constant';
 
 function* addNewInvestment (data) {
-    const invSave = yield axios.post(`http://localhost:6767/investment/add`, data.payload, {
+    const invSave = yield axios.post(`${getAPI()}investment/add`, data.payload, {
         headers: {
             authentication: localStorage.getItem('token')
         }
@@ -28,7 +29,7 @@ function* addNewInvestment (data) {
 }
 
 function* getAllInvestList () {
-    const investRequest = yield axios.get(`http://localhost:6767/investment/list-all`, {
+    const investRequest = yield axios.get(`${getAPI()}investment/list-all`, {
         headers: {
             authentication: localStorage.getItem('token')
         }

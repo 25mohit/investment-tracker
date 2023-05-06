@@ -2,9 +2,10 @@ import axios from 'axios';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Action from '../types'
 import { globalSettingMain, nestedSettingList } from './SettingsAction';
+import getAPI from '../../Constant';
 
 function* mainSetting(){
-    const getMainSetting = yield axios.get('http://localhost:6767/global-settings/get')
+    const getMainSetting = yield axios.get(`${getAPI()}global-settings/get`)
     .then((res) => {
         var response = res.data
         console.log("res", res, response);
@@ -22,7 +23,7 @@ function* mainSetting(){
 }
 
 function* nestedSettingSaga(id){
-    const nestSetting = yield axios.get(`http://localhost:6767/global-settings/detail/get-all/${id.payload}`,{
+    const nestSetting = yield axios.get(`${getAPI()}global-settings/detail/get-all/${id.payload}`,{
         headers: {
             authentication: localStorage.getItem('token')
         }
@@ -44,7 +45,7 @@ function* nestedSettingSaga(id){
 }
 
 function* addNestedSetting(data){
-    const nestSetting = yield axios.post(`http://localhost:6767/global-settings/detail/${data.payload.id}`, data.payload.data,{
+    const nestSetting = yield axios.post(`${getAPI()}global-settings/detail/${data.payload.id}`, data.payload.data,{
         headers: {
             authentication: localStorage.getItem('token')
         }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 import * as Action from '../types'
-import { allInvestmentList, getAllInvestment } from './InvAction';
+import { allInvestmentList, getAllInvestment } from './invAction';
 import getAPI from '../../Constant';
 
 function* addNewInvestment (data) {

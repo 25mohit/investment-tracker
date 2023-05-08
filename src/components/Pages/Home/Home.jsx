@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllInvestment } from '../../../Redux/Investment/InvAction'
+import { getAllInvestment } from '../../../Redux/Investment/invAction'
 import { logoutActivity } from '../../../Redux/User/UserAction'
 import Notification from '../../Common/Notification/Notification'
 import Table from '../../Common/Table/Table'

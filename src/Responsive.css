@@ -1,0 +1,18 @@
+@media (max-width: 900px){
+
+    .main_container .left{
+        display: none;
+    }
+    .main_container .right{
+        width: 100%;
+    }
+    .user_form{
+        min-width: fit-content;
+    }
+    
+}
+@media (max-width: 460px){
+    .main_container{
+        padding: 0.6rem 1rem;
+    }
+}

@@ -1,5 +1,6 @@
 import './App.css'
 import './Style.css'
+import './Responsive.css'
 import { useSelector } from 'react-redux'
 import Main from './components/Pages/Main/Main'
 import Home from './components/Pages/Home/Home'

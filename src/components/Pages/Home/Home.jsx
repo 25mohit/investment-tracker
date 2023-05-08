@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllInvestment } from '../../../Redux/Investment/invAction'
 import { logoutActivity } from '../../../Redux/User/UserAction'
 import Notification from '../../Common/Notification/Notification'
 import Table from '../../Common/Table/Table'
 import InvAdd from '../../InvAdd/InvAdd'
 import Settings from '../../Settings/Settings'
+import { getAllInvestment } from '../../../Redux/Investment/invAction'
 
 const Home = () => {
   const [toogleOpt, setToogleOpt] = useState({
